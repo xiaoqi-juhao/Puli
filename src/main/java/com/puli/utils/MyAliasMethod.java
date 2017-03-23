@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by Administrator on 2017/3/23.
  */
-public class AliasMethod {
+public class MyAliasMethod {
     /* The random number generator used to sample from the distribution. */
     private final Random random;
 
@@ -15,7 +15,7 @@ public class AliasMethod {
     private final double[] probability;
 
     /**
-     * Constructs a new AliasMethod to sample from a discrete distribution and
+     * Constructs a new MyAliasMethod to sample from a discrete distribution and
      * hand back outcomes based on the probability distribution.
      * <p/>
      * Given as input a list of probabilities corresponding to outcomes 0, 1,
@@ -24,12 +24,12 @@ public class AliasMethod {
      *
      * @param probabilities The list of probabilities.
      */
-    public AliasMethod(List<Double> probabilities) {
+    public MyAliasMethod(List<Double> probabilities) {
         this(probabilities, new Random());
     }
 
     /**
-     * Constructs a new AliasMethod to sample from a discrete distribution and
+     * Constructs a new MyAliasMethod to sample from a discrete distribution and
      * hand back outcomes based on the probability distribution.
      * <p/>
      * Given as input a list of probabilities corresponding to outcomes 0, 1,
@@ -40,7 +40,7 @@ public class AliasMethod {
      * @param probabilities The list of probabilities.
      * @param random        The random number generator
      */
-    public AliasMethod(List<Double> probabilities, Random random) {
+    public MyAliasMethod(List<Double> probabilities, Random random) {
         /* Begin by doing basic structural checks on the inputs. */
         if (probabilities == null || random == null)
             throw new NullPointerException();
@@ -143,12 +143,12 @@ public class AliasMethod {
         传入奖品内容
         map.put(名称, 概率);
      */
-    public static String getAliasMethod(TreeMap<String, Double> map){
+    public static String getMyAliasMethod(TreeMap<String, Double> map){
 
         List<Double> list = new ArrayList<Double>(map.values());
         List<String> gifts = new ArrayList<String>(map.keySet());
 
-        AliasMethod method = new AliasMethod(list);
+        MyAliasMethod method = new MyAliasMethod(list);
 
         Map<String, AtomicInteger> resultMap = new HashMap<String, AtomicInteger>();
 
@@ -171,6 +171,6 @@ public class AliasMethod {
         map.put("4金币", 0.05);
         map.put("未中奖", 0.5);
         for (int i=0;i<20;i++)
-        System.out.println(AliasMethod.getAliasMethod(map));
+        System.out.println(MyAliasMethod.getMyAliasMethod(map));
     }
 }
