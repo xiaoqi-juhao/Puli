@@ -18,7 +18,6 @@ public class IndexController {
     public String addIndex(Probability probability){
 
         Probability p =probabilityService.save(probability);
-
         return p!=null&&p.equals(null)? "添加成功！^_^!":"添加失败！";
     }
 }
